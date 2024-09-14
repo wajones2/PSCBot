@@ -15,7 +15,7 @@ async def on_ready():
 
 
 @client.command()
-async def verify(ctx, email):
+async def verify_membership(ctx, email):
     status = ver.memberVerify(email)
 
     role = discord.utils.get(ctx.guild.roles, name="Member")
@@ -26,7 +26,16 @@ async def verify(ctx, email):
     else:
         await ctx.send("You must be a member to be granted the '{role}' role")
 
-            
+@client.command()
+async def verify_position(ctx, email):
+    status = ver.positionVerify(email)
+
+    if status != False:
+        role = discord.utils.get(ctx.guild.roles, name=f"{status[1]}")
+        await ctx.author.add_roles(role)
+        await ctx.send(f"{ctx.author.nick} has been granted the '{role}' role ")
+    else:
+        await ctx.send("Your email is not on our list. If you have a position, contact an officer.")
 
 client.run(TOKEN)
 
