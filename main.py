@@ -24,7 +24,7 @@ async def verify_membership(ctx, email):
         await ctx.author.add_roles(role)
         await ctx.send(f"{ctx.author.nick} has been granted the '{role}' role ")
     else:
-        await ctx.send("You must be a member to be granted the '{role}' role")
+        await ctx.send(f"You must be a member to be granted the '{role}' role")
 
 @client.command()
 async def verify_position(ctx, email):
