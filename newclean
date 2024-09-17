@@ -1,0 +1,5 @@
+#! /bin/zsh
+
+
+python newclean.py
+

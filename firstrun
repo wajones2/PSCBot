@@ -1,0 +1,9 @@
+#! /bin/zsh
+
+python -m venv venv
+source venv/bin/activate
+pip install discord.py
+python newclean.py
+chmod +x start
+chmod -x firstrun
+
